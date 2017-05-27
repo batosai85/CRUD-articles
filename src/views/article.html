@@ -1,0 +1,18 @@
+<div class="container cont3">
+    <div layout="row" ng-if="loading" layout-sm="column" layout-align="space-around">
+        <md-progress-circular md-mode="indeterminate" md-diameter="100" class="md-warn md-hue"></md-progress-circular>
+    </div>
+    <div class="col-sm-12 blog-main blog-bor">
+        <div class="blog-post" ng-repeat="d in data">
+            <h2 class="blog-post-title ">{{d.headline}}</h2>
+            <p class="blog-post-meta"> {{ "by " + d.author}}</p>
+            <p class="read-article">{{d.content}}</p>
+            <div>
+                <a ui-sref="edit({category : d.category, headline : d.headline})">
+                    <md-button class="md-raised md-primary">Edit</md-button>
+                </a>
+                <md-button class="md-raised md-primary del" ng-click="delete(d)">Delete</md-button>
+            </div>
+        </div>
+    </div>
+</div>
